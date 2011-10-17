@@ -129,6 +129,7 @@ class Solver(dictionary: String = "./dictionary.txt"){
 /*****
  Main
 *****/
+var time_to_solve: Double = 0.0
 var running = true
 var robot = new Robot()
 val solver = new Solver
@@ -142,9 +143,12 @@ while(running){
     running = false
     println("Goodbye!")
   }else if(input.length == 16){
-    print("Solving game...")
+    print("Solving game... ")
+    time_to_solve = System.nanoTime()
     solver.solve(input)
-    print("Solved!\n\nYou have 5 seconds to focus on the input area...")
+    time_to_solve = (System.nanoTime() - time_to_solve) / 1000000000.0
+    println("Solved in " + time_to_solve + " seconds")
+    print("\nYou have 5 seconds to focus on the input area...")
     robot.delay(5000)
     wordTyper.typeWords(solver.words)
     println("\nDone!\n")
