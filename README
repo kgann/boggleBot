@@ -1,0 +1,8 @@
+Kyle Gann
+10/16/2011
+
+Simple boggle solver written in Scala
+
+$> scala boggleBot.scala
+
+Follow on screen prompts...
